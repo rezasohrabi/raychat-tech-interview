@@ -1,12 +1,12 @@
-import './App.scss';
-import QuestionList from './Components/QuestionList';
+import './App.css';
+import Quiz from './Components/Quiz';
 import ToggleMessage from './ToggleMessage';
 
 function App() {
   return (
     <div className="app">
         <ToggleMessage />
-        <QuestionList />
+        <Quiz />
     </div>
   );
 }
