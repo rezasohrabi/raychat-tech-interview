@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Question } from '../Question';
+import Question from '../Question';
 import Result from '../Result';
 
 const mapState = (state) => ({
@@ -17,11 +17,8 @@ const Quiz = () => {
     return (
         <section>
             <a href='#'>this link is for new tab sync test</a>
-            {completed? 
-            <Result responses={responses} />
-            :
-            <Question {...question} />
-            }
+            {completed && <Result responses={responses} />}
+            {!completed && <Question {...question} />}
         </section>
     )
 }

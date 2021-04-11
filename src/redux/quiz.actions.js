@@ -1,6 +1,6 @@
 import quizTypes  from './quiz.types';
 
-export const setNextQuestion = (answer) => ({
+export const setNextQuestion = answer => ({
     type: quizTypes.SET_NEXT_QUESTION,
     payload: answer,
 });

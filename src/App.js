@@ -12,15 +12,14 @@ window.loadNumbersBlock = function() {
   }
 
   function count(number) {
-      let count = 0;
-      while(number != 0) {
-        number = Math.floor(number / 10);
-        ++count;
-      }
-      return count;
+    return  number.toString().length; 
   }
 
   function logNumbersEvenOrOdd(numbers) {
+      if(!numbers || !Array.isArray(numbers)) {
+        console.error('input shuold be an array of numbers');
+        return;
+      }
       for(let index = 0; index < numbers.length; index++ ) {
           const number = numbers[index];
 
@@ -43,7 +42,7 @@ window.loadFirstMissingCharacterBlock = function() {
   function initCharactersPresent(alphabet) {
     const characterPresent = {};
     for(let i = 0; i < alphabet.length; i++){
-      const charactor = alphabet.charAt(i);
+      const charactor = alphabet[i];
       characterPresent[charactor] = 0;
     }
     return characterPresent;
@@ -57,17 +56,22 @@ window.loadFirstMissingCharacterBlock = function() {
       }
     }
   }
+
+  function isAlphabet(character) {
+    return (/[a-zA-Z]/).test(character);
+  }
   
   function findFirstMissingCharacter(string) {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
     const characterPresent = initCharactersPresent(alphabet);
+    const lowerCaseString = string.toLowerCase();
 
-    for(let i = 0; i < string.length; i++) {
-      const lowerCaseCharacter = string.charAt(i).toLowerCase();
-      if(characterPresent.hasOwnProperty(lowerCaseCharacter)) {
-        characterPresent[lowerCaseCharacter] += 1;
-      }
+    for(let i = 0; i < lowerCaseString.length; i++) {
+        const character = lowerCaseString[i];
+        if(isAlphabet(character)) {
+          characterPresent[character] += 1;
+        }
     }
 
     logFirstMissingCharacter(characterPresent)

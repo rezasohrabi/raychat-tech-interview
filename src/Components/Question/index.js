@@ -1,7 +1,7 @@
 import React from 'react';
 import AnswerOption from '../AnswerOption';
 
-export const Question = ({title, answers, correct}) => {
+const Question = ({title, answers, correct}) => {
     return (
         <div>
             <h1>{title}</h1>

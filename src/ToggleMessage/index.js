@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 const ToggleMessage = props => {
     const [open, setOpen] = useState(false);
 
-    const handleToggle = e => {
-        e.preventDefault();
+    const handleToggle = () => {
         setOpen(!open);
     }
 
